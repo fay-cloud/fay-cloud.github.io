@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit OAuth Callback</title>
+</head>
+<body>
+    <h1>Reddit OAuth Callback</h1>
+    <p>Authorization Code: <span id="auth-code"></span></p>
+
+    <script>
+        // Get the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const authCode = urlParams.get('code');  // Extract the authorization code from the URL
+        
+        if (authCode) {
+            document.getElementById("auth-code").textContent = authCode;
+            // Now you can send this code back to your server (e.g., via an API or directly to your script)
+        } else {
+            document.getElementById("auth-code").textContent = "No authorization code found.";
+        }
+    </script>
+</body>
+</html>
